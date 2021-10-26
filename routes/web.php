@@ -13,10 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//for frontend
 
+Route::view('/', 'frontend.pages.home.index')->name('frontend.home');
+Route::view('/business', 'frontend.pages.business.index')->name('frontend.business');
+Route::view('/about', 'frontend.pages.about.index')->name('frontend.about');
+Route::view('/team', 'frontend.pages.team.index')->name('frontend.team');
+Route::view('/community', 'frontend.pages.community.index')->name('frontend.community');
+Route::view('/newsroom', 'frontend.pages.newsroom.index')->name('frontend.newsroom');
+Route::view('/careers', 'frontend.pages.careers.index')->name('frontend.careers');
+Route::view('/contact', 'frontend.pages.contact.index')->name('frontend.contact');
 
 
 //for backend
