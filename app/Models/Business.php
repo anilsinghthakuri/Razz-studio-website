@@ -9,11 +9,11 @@ class Business extends Model
 {
     use HasFactory;
 
-    protected $table = [
+    protected $fillable = [
         'image',
         'title',
         'desc',
     ];
 
-    
+
 }

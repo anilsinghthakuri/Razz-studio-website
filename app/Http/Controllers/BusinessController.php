@@ -24,7 +24,7 @@ class BusinessController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.pages.business.create');
     }
 
     /**
@@ -35,7 +35,17 @@ class BusinessController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+
+        $destinationPath_for_business = 'backend/images/business/';
+        //background
+        $gallery_image_file = $request->file('images');
+        $gallery_image = image_upload($gallery_image_file, $destinationPath_for_business);
+        $request->request->add(['image'=>$gallery_image]);
+
+        // dd($request->all());
+        Business::create($request->except('_token'));
+        return redirect()->back();
     }
 
     /**
