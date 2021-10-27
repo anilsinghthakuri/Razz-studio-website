@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BusinessController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,5 +31,6 @@ Route::view('/contact', 'frontend.pages.contact.index')->name('frontend.contact'
 Route::prefix('admin')->group(function () {
 
     Route::view('/dashboard', 'backend.pages.dashboard.index')->name('dashboard');
+    Route::resource('/business', BusinessController::class);
 
 });
