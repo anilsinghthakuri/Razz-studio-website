@@ -1,6 +1,6 @@
 @extends('backend.layouts.backend_master')
 
-@section('title','Business Create')
+@section('title','Business Edit')
 
 
 @section('contents')
@@ -16,24 +16,26 @@
                     </div>
                     <div class="card-body">
 
-                        <form action="{{route('business.store')}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('business.update',$business)}}" method="post" enctype="multipart/form-data">
                             @csrf
-                            <img src="" id="profile-img-tag" width="200px" />
+                            @method('PUT')
+                            <img src="{{asset('backend/images/business/'.$business->image)}}" id="profile-img-tag" width="200px" />
                             <div class="form-group">
                                 <label for="image">Image</label>
                                 <input type="file" class="form-control-file" name="images" id="profile-img"
-                                    placeholder="Select image" aria-describedby="fileHelpId" required>
+                                    placeholder="Select image" aria-describedby="fileHelpId" value="{{$business->image}}">
                             </div>
                             <div class="form-group">
                                 <label for="title">Title</label>
                                 <input type="text" class="form-control" name="title" id="title"
-                                    aria-describedby="helpId" placeholder="Enter Business title" required>
+                                    aria-describedby="helpId" placeholder="Enter Business title" value="{{$business->title}}" required>
                             </div>
                             <div class="form-group">
                                 <label for="desc">Description</label>
-                                <textarea class="form-control" name="desc" id="desc" rows="8" required></textarea>
+                                <textarea class="form-control" name="desc" id="desc" rows="8" required>{{$business->desc}}</textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                            <a href="{{route('business.index')}}"><button type="button" class="btn btn-danger">Cancel</button></a>
                         </form>
                     </div>
                 </div>
@@ -57,13 +59,8 @@
                                     <tr>
                                         <td scope="row">{{$item->title}}</td>
                                         <td>
-                                            <form action="{{route('business.destroy',$item->id)}}" method="post" id="form1">
-                                                @csrf
-                                            <a href="{{route('business.edit',$item->id)}}" class="text-primary"><i class="fas fa-edit"
-                                                    aria-hidden="true"></i></a>
-                                                @method('DELETE')
-                                            <button type="submit" class="btn-danger" ><i class="fas fa-trash" aria-hidden="true"></i></button>
-                                            </form>
+                                            <a href="#"> <i class="fas fa-edit"></i></a>
+                                            <a href="#"> <i class="fas fa-trash" aria-hidden="true"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach

@@ -14,7 +14,10 @@ class BusinessController extends Controller
      */
     public function index()
     {
-        return view('backend.pages.business.index');
+        $business_data = $this->fetch_business_data();
+        return view('backend.pages.business.index',[
+            'business_data'=>$business_data,
+        ]);
     }
 
     /**
@@ -24,7 +27,10 @@ class BusinessController extends Controller
      */
     public function create()
     {
-        return view('backend.pages.business.create');
+        $business_data = $this->fetch_business_data();
+        return view('backend.pages.business.create',[
+            'business_data'=>$business_data,
+        ]);
     }
 
     /**
@@ -45,7 +51,7 @@ class BusinessController extends Controller
 
         // dd($request->all());
         Business::create($request->except('_token'));
-        return redirect()->back();
+        return redirect()->back()->with('message','Business Created Successfully');
     }
 
     /**
@@ -67,7 +73,12 @@ class BusinessController extends Controller
      */
     public function edit(Business $business)
     {
-        //
+        $business_data = $this->fetch_business_data();
+        return view('backend.pages.business.edit',[
+            'business'=>$business,
+            'business_data'=>$business_data,
+        ]);
+
     }
 
     /**
@@ -79,7 +90,22 @@ class BusinessController extends Controller
      */
     public function update(Request $request, Business $business)
     {
-        //
+
+        // dd($request->all());
+
+        if ($request->hasAny('images')) {
+            // dd('has image');
+            $destinationPath_for_business = 'backend/images/business/';
+            //background
+            $gallery_image_file = $request->file('images');
+            $gallery_image = image_upload($gallery_image_file, $destinationPath_for_business);
+            $request->request->add(['image'=>$gallery_image]);
+        }
+
+
+        // dd($request->all());
+        $business->update($request->except('_token'));
+        return redirect(route('business.index'))->with('info','Business Updated Successfully');
     }
 
     /**
@@ -90,6 +116,14 @@ class BusinessController extends Controller
      */
     public function destroy(Business $business)
     {
-        //
+        $business->delete();
+        return redirect(route('business.index'))->with('warning','Business Deleted seccessfully');
+    }
+
+    //for to fetch all business table data
+    private function fetch_business_data()
+    {
+        $business_data = Business::all();
+        return $business_data;
     }
 }

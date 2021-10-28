@@ -3,6 +3,9 @@
 
 
 //for image upload
+
+use App\Models\Business;
+
 function image_upload($file = null,$destinationPath)
 {
 
@@ -19,6 +22,14 @@ function image_upload($file = null,$destinationPath)
         return $originalFile;
     }
 
+}
+
+
+//for business page
+
+function fetch_business_data(){
+    $business_data = Business::all();
+    return $business_data;
 }
 
 
