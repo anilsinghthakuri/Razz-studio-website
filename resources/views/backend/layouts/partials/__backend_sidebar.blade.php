@@ -59,15 +59,14 @@
                         </li>
                     </ul>
                 </li> --}}
-                {{-- <li class="nav-item">
-                    <a href="#" class="nav-link">
+                <li class="nav-item">
+                    <a href="{{route('about-us.edit',1)}}" class="nav-link {{ (request()->is('admin/aboutus*')) ? 'active' : '' }}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Simple Link
-                            <span class="right badge badge-danger">New</span>
+                            About Us
                         </p>
                     </a>
-                </li> --}}
+                </li>
                 <li class="nav-item {{ (request()->is('admin/business*')) ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ (request()->is('admin/business*')) ? 'active' : '' }}">
                         <i class="nav-icon fas fa-circle"></i>
