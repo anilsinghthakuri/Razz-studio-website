@@ -32,9 +32,9 @@
                                         <h3 class="box-title">
                                             <a href="#">{{$item->title}}</a>
                                         </h3>
-                                        <p>{{$item->desc}}</p>
+                                        <p>{{Str::limit($item->desc,50, '...')}}</p>
                                     </div>
-                                    <a class="work-readmore" href="#"><i class="fas fa-arrow-right"> </i> Read More </a>
+                                    <a class="work-readmore" href="{{route('frontend.business_show',$item->id)}}"><i class="fas fa-arrow-right"> </i> Read More </a>
                                 </div>
                             </div>
                         </div>

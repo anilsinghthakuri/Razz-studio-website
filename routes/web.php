@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BusinessController;
+use App\Http\Controllers\frontend\FrontBusinessController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +18,15 @@ use Illuminate\Support\Facades\Route;
 //for frontend
 
 Route::view('/', 'frontend.pages.home.index')->name('frontend.home');
-Route::view('/business', 'frontend.pages.business.index')->name('frontend.business');
+
+    //for business page
+
+    // Route::view('/business', 'frontend.pages.business.index')->name('frontend.business');
+    Route::get('/business', [FrontBusinessController::class,'index'])->name('frontend.business');
+    Route::get('/business', [FrontBusinessController::class,'index'])->name('frontend.business');
+    Route::get('/business/{id}', [FrontBusinessController::class,'show'])->name('frontend.business_show');
+
+
 Route::view('/about', 'frontend.pages.about.index')->name('frontend.about');
 Route::view('/team', 'frontend.pages.team.index')->name('frontend.team');
 Route::view('/community', 'frontend.pages.community.index')->name('frontend.community');

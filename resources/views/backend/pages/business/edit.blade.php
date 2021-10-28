@@ -59,8 +59,13 @@
                                     <tr>
                                         <td scope="row">{{$item->title}}</td>
                                         <td>
-                                            <a href="#"> <i class="fas fa-edit"></i></a>
-                                            <a href="#"> <i class="fas fa-trash" aria-hidden="true"></i></a>
+                                            <form action="{{route('business.destroy',$item->id)}}" method="post" id="form1">
+                                                @csrf
+                                            <a href="{{route('business.edit',$item->id)}}" class="text-primary"><i class="fas fa-edit"
+                                                    aria-hidden="true"></i></a>
+                                                @method('DELETE')
+                                            <button type="submit" class="btn-danger" ><i class="fas fa-trash" aria-hidden="true"></i></button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach
