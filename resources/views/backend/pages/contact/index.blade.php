@@ -27,7 +27,7 @@
                                 <td>{{$item->subject}}</td>
                                 <td>{{$item->email}}</td>
                                 <td>
-                                        <a href="#"><i class="fas fa-eye" aria-hidden="true"></i></a>
+                                        <a href="{{route('contact.show',$item->id)}}"><i class="fas fa-eye" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
                         @endforeach
