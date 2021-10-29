@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AboutusController;
 use App\Http\Controllers\BusinessController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\frontend\FrontBusinessController;
+use App\Http\Controllers\frontend\FrontContactController;
 use App\Http\Controllers\frontend\FrontTeamController;
 use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Route;
@@ -36,12 +38,19 @@ Route::view('/', 'frontend.pages.home.index')->name('frontend.home');
     Route::get('/team', [FrontTeamController::class,'index'])->name('frontend.team');
     Route::get('/team/{id}', [FrontTeamController::class,'show'])->name('frontend.team_show');
 
+    //for contact
+    // Route::view('/contact', 'frontend.pages.contact.index')->name('frontend.contact');
+    Route::get('/contact', [FrontContactController::class,'index'])->name('frontend.contact');
+    Route::post('/contact', [FrontContactController::class,'store'])->name('frontend.contact_store');
+
+
+
+
 
 
 Route::view('/community', 'frontend.pages.community.index')->name('frontend.community');
 Route::view('/newsroom', 'frontend.pages.newsroom.index')->name('frontend.newsroom');
 Route::view('/careers', 'frontend.pages.careers.index')->name('frontend.careers');
-Route::view('/contact', 'frontend.pages.contact.index')->name('frontend.contact');
 
 
 //for backend
@@ -51,6 +60,7 @@ Route::prefix('admin')->group(function () {
     Route::view('/dashboard', 'backend.pages.dashboard.index')->name('dashboard');
     Route::resource('/business', BusinessController::class);
     Route::resource('/team', TeamController::class);
+    Route::resource('/contact', ContactController::class);
 
 
 

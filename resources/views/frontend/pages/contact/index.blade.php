@@ -14,6 +14,12 @@
     </div>
 </section>
 
+@if(Session::has('message'))
+    <div class="alert alert-primary" role="alert">
+        {{session('message')}}
+    </div>
+@endif
+
 <section class="section contact">
     <div class="core__work section__Pt section__Pb">
         <div class="container">
@@ -83,28 +89,29 @@
 <section class="contact__form section__Pb">
     <div class="container">
         <div class="row">
-            <form class="row g-3">
+            <form class="row g-3" method="POST" action="{{route('frontend.contact_store')}}">
+                @csrf
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Your Full Name</label>
-                    <input type="text" class="form-control" id="inputEmail4" placeholder="Your Full Name">
+                    <input type="text" class="form-control" id="inputEmail4" placeholder="Your Full Name" name="name" required>
                 </div>
                 <div class="col-md-6">
                     <label for="inputPassword4" class="form-label">Your Email Address</label>
-                    <input type="email" class="form-control" id="inputPassword4" placeholder="Your Email Address">
+                    <input type="email" class="form-control" id="inputPassword4" placeholder="Your Email Address" name="email" required>
                 </div>
                 <div class="col-12">
                     <label for="inputAddress" class="form-label">Phone Number</label>
-                    <input type="number" class="form-control" id="inputAddress" placeholder="Number">
+                    <input type="number" class="form-control" id="inputAddress" placeholder="Number" name="phone" required>
                 </div>
                 <div class="col-12">
                     <label for="inputAddress2" class="form-label">Subject</label>
-                    <input type="text" class="form-control" id="inputAddress2" placeholder="Subject">
+                    <input type="text" class="form-control" id="inputAddress2" placeholder="Subject" name="subject" required>
                 </div>
 
                 <div class="col-md-12">
                     <label for="inputZip" class="form-label">Leave A Message</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"
-                        placeholder="Leace A Message"></textarea>
+                        placeholder="Leace A Message" name="message" required></textarea>
 
 
                 </div>

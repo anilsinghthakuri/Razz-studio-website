@@ -60,10 +60,20 @@
                     </ul>
                 </li> --}}
                 <li class="nav-item">
-                    <a href="{{route('about_us',1)}}" class="nav-link {{ (request()->is('admin/aboutus*')) ? 'active' : '' }}">
+                    <a href="{{route('about_us',1)}}"
+                        class="nav-link {{ (request()->is('admin/aboutus*')) ? 'active' : '' }}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             About Us
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('contact.index')}}"
+                        class="nav-link {{ (request()->is('admin/contact*')) ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Contact
                         </p>
                     </a>
                 </li>
@@ -77,7 +87,8 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('business.create')}}" class="nav-link  {{ (request()->is('admin/business/create')) ? 'active' : '' }}">
+                            <a href="{{route('business.create')}}"
+                                class="nav-link  {{ (request()->is('admin/business/create')) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Create</p>
                             </a>
@@ -85,7 +96,8 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('business.index')}}" class="nav-link {{ (request()->is('admin/business')) ? 'active' : '' }}">
+                            <a href="{{route('business.index')}}"
+                                class="nav-link {{ (request()->is('admin/business')) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>View</p>
                             </a>
@@ -103,7 +115,8 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('team.create')}}" class="nav-link  {{ (request()->is('admin/team/create')) ? 'active' : '' }}">
+                            <a href="{{route('team.create')}}"
+                                class="nav-link  {{ (request()->is('admin/team/create')) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Create</p>
                             </a>
@@ -111,7 +124,8 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('team.index')}}" class="nav-link {{ (request()->is('admin/team')) ? 'active' : '' }}">
+                            <a href="{{route('team.index')}}"
+                                class="nav-link {{ (request()->is('admin/team')) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>View</p>
                             </a>
