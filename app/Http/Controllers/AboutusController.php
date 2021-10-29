@@ -112,4 +112,10 @@ class AboutusController extends Controller
         $about_us = DB::table('aboutuses')->where('id',1)->first();
         return $about_us;
     }
+
+
+    public function aboutus()
+    {
+
+    }
 }

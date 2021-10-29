@@ -60,7 +60,7 @@
                     </ul>
                 </li> --}}
                 <li class="nav-item">
-                    <a href="{{route('about-us.edit',1)}}" class="nav-link {{ (request()->is('admin/aboutus*')) ? 'active' : '' }}">
+                    <a href="{{route('about_us',1)}}" class="nav-link {{ (request()->is('admin/aboutus*')) ? 'active' : '' }}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             About Us
@@ -86,6 +86,32 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{route('business.index')}}" class="nav-link {{ (request()->is('admin/business')) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item {{ (request()->is('admin/team*')) ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ (request()->is('admin/team*')) ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p>
+                            Team
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('team.create')}}" class="nav-link  {{ (request()->is('admin/team/create')) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Create</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('team.index')}}" class="nav-link {{ (request()->is('admin/team')) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>View</p>
                             </a>
