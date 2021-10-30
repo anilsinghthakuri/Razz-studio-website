@@ -34,13 +34,9 @@
 							<div class="footer_box ">
 								<h4 class="mb-4">Business</h4>
 								<div class="menu-list-footer">
-									<li><a href="#">Automobiles</a></li>
-									<li><a href="#">Electronics</a></li>
-									<li><a href="#">Finance</a></li>
-									<li><a href="#">Insurance</a></li>
-									<li><a href="#">Bioscience</a></li>
-									<li><a href="#">Alternative Energy</a></li>
-
+                                    @foreach (fetch_business_data_front() as $item)
+                                        <li><a href="{{route('frontend.business_show',$item->id)}}">{{$item->title}}</a></li>
+                                    @endforeach
 								</div>
 							</div>
 
@@ -56,11 +52,11 @@
 							<div class="footer_box ">
 								<h4 class="mb-4">Corporate</h4>
 								<div class="menu-list-footer">
-									<li><a href="#">Home</a></li>
-									<li><a href="#">About</a></li>
-									<li><a href="#">Business</a></li>
-									<li><a href="#">Community</a></li>
-									<li><a href="#">Newsroom</a></li>
+									<li><a href="{{route('frontend.home')}}">Home</a></li>
+									<li><a href="{{route('frontend.about')}}">About</a></li>
+									<li><a href="{{route('frontend.business')}}">Business</a></li>
+									<li><a href="{{route('frontend.community')}}">Community</a></li>
+									<li><a href="{{route('frontend.newsroom')}}">Newsroom</a></li>
 								</div>
 							</div>
 
@@ -75,32 +71,17 @@
 
 							<div class="footer_box ">
 								<h4 class="mb-4">Recent News</h4>
-								<div class="d-flex align-items-center mb-3">
-									<div class="img-footer"><img class="footer-news" src="{{asset('frontend/images/news-list-1.jpeg')}}"
-											alt="news"></div>
-									<div class="footer__news--contain"><a href="#">Lorem Ipsum Dolor Sit Amet </a>
-										<span><i class="fas fa-calendar-week"></i> March 13, 2021</span></div>
-								</div>
-								<div class="d-flex align-items-center mb-3">
-									<div class="img-footer"><img class="footer-news" src="{{asset('frontend/images/news-list-1.jpeg')}}"
-											alt="news"></div>
-									<div class="footer__news--contain"><a href="#">Lorem Ipsum Dolor Sit Amet </a>
-										<span><i class="fas fa-calendar-week"></i> March 13, 2021</span></div>
-								</div>
-								<div class="d-flex align-items-center mb-3">
-									<div class="img-footer"><img class="footer-news" src="{{asset('frontend/images/news-list-1.jpeg')}}"
-											alt="news"></div>
-									<div class="footer__news--contain"><a href="#">Lorem Ipsum Dolor Sit Amet </a>
-										<span><i class="fas fa-calendar-week"></i> March 13, 2021</span></div>
-								</div>
+                                @foreach (fetch_news_data_front() as $item)
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="img-footer"><img class="footer-news" src="{{asset('backend/images/news/'.$item->image)}}"
+                                                alt="news"></div>
+                                        <div class="footer__news--contain"><a href="#">{{$item->title}}</a>
+                                            <span><i class="fas fa-calendar-week"></i> {{$item->created_at}}</span></div>
+                                    </div>
+                                @endforeach
 							</div>
-
-
-
 						</div>
 					</div>
-
-
 				</div>
 			</div>
 		</div>
