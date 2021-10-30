@@ -21,67 +21,30 @@
                     <h2>Corporate news</h2>
                 </div>
                 <div class="row mb-5">
-                    <div class="col-md-4">
-                        <div class="work-item mb-4">
+                    @foreach ($news_data as $item)
+                        @if ($item->news_group == 'Corporate')
+                            <div class="col-md-4">
+                                <div class="work-item mb-4">
 
 
-                            <img class="news-img " alt="Vue logo" src="{{asset('frontend/images/news-list-3.jpeg')}}">
-                            <div class="work_box ">
-                                <div class=" d-flex justify-content-between align-items-center mb-3">
-                                    <span><i aria-hidden="true" class="far fa-user"></i> golchha</span>
-                                    <span><i class="fas fa-calendar-week"></i> MAY 19, 2021</span>
+                                    <img class="news-img " alt="Vue logo" src="{{asset('backend/images/news/'.$item->image)}}">
+                                    <div class="work_box ">
+                                        <div class=" d-flex justify-content-between align-items-center mb-3">
+                                            <span><i aria-hidden="true" class="far fa-user"></i> {{$item->news_type}}</span>
+                                            <span><i class="fas fa-calendar-week"></i> {{$item->created_at}}</span>
+                                        </div>
+                                        <h3 class="box-title mb-3">
+                                            <a href="#">{{$item->title}}</a>
+                                        </h3>
+                                        <a class="work-readmore" href="{{route('frontend.newsroom_show',$item->id)}}"><i class="fas fa-arrow-right"></i></a>
+                                    </div>
+
+
+
                                 </div>
-                                <h3 class="box-title mb-3">
-                                    <a href="#">गोल्छा ग्रुपले पाटन अस्पताललाई दियो १ करोड सहयोग</a>
-                                </h3>
-                                <a class="work-readmore" href="#"><i class="fas fa-arrow-right"></i></a>
                             </div>
-
-
-
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="work-item mb-4">
-
-
-                            <img class="news-img " alt="Vue logo" src="{{asset('frontend/images/news-list-3.jpeg')}}">
-                            <div class="work_box ">
-                                <div class=" d-flex justify-content-between align-items-center mb-3">
-                                    <span><i aria-hidden="true" class="far fa-user"></i> golchha</span>
-                                    <span><i class="fas fa-calendar-week"></i> MAY 19, 2021</span>
-                                </div>
-                                <h3 class="box-title mb-3">
-                                    <a href="#">गोल्छा ग्रुपले पाटन अस्पताललाई दियो १ करोड सहयोग</a>
-                                </h3>
-                                <a class="work-readmore" href="#"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-
-
-
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="work-item mb-4">
-
-
-                            <img class="news-img " alt="Vue logo" src="{{asset('frontend/images/news-list-3.jpeg')}}">
-                            <div class="work_box ">
-                                <div class=" d-flex justify-content-between align-items-center mb-3">
-                                    <span><i aria-hidden="true" class="far fa-user"></i> golchha</span>
-                                    <span><i class="fas fa-calendar-week"></i> MAY 19, 2021</span>
-                                </div>
-                                <h3 class="box-title mb-3">
-                                    <a href="#">गोल्छा ग्रुपले पाटन अस्पताललाई दियो १ करोड सहयोग</a>
-                                </h3>
-                                <a class="work-readmore" href="#"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-
-
-
-                        </div>
-                    </div>
-
+                        @endif
+                    @endforeach
                 </div>
 
                 <div class="section__title ">
@@ -89,67 +52,31 @@
                     <h2>Mentions</h2>
                 </div>
                 <div class="row ">
-                    <div class="col-md-4">
-                        <div class="work-item mb-4">
+
+                    @foreach ($news_data as $item)
+                    @if ($item->news_group == 'Mentions')
+                        <div class="col-md-4">
+                            <div class="work-item mb-4">
 
 
-                            <img class="news-img " alt="Vue logo" src="{{asset('frontend/images/news-list-3.jpeg')}}">
-                            <div class="work_box ">
-                                <div class=" d-flex justify-content-between align-items-center mb-3">
-                                    <span><i aria-hidden="true" class="far fa-user"></i> golchha</span>
-                                    <span><i class="fas fa-calendar-week"></i> MAY 19, 2021</span>
+                                <img class="news-img " alt="Vue logo" src="{{asset('backend/images/news/'.$item->image)}}">
+                                <div class="work_box ">
+                                    <div class=" d-flex justify-content-between align-items-center mb-3">
+                                        <span><i aria-hidden="true" class="far fa-user"></i> {{$item->news_type}}</span>
+                                        <span><i class="fas fa-calendar-week"></i> {{$item->created_at}}</span>
+                                    </div>
+                                    <h3 class="box-title mb-3">
+                                        <a href="#">{{$item->title}}</a>
+                                    </h3>
+                                    <a class="work-readmore" href="{{route('frontend.newsroom_show',$item->id)}}"><i class="fas fa-arrow-right"></i></a>
                                 </div>
-                                <h3 class="box-title mb-3">
-                                    <a href="#">गोल्छा ग्रुपले पाटन अस्पताललाई दियो १ करोड सहयोग</a>
-                                </h3>
-                                <a class="work-readmore" href="#"><i class="fas fa-arrow-right"></i></a>
+
+
+
                             </div>
-
-
-
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="work-item mb-4">
-
-
-                            <img class="news-img " alt="Vue logo" src="{{asset('frontend/images/news-list-3.jpeg')}}">
-                            <div class="work_box ">
-                                <div class=" d-flex justify-content-between align-items-center mb-3">
-                                    <span><i aria-hidden="true" class="far fa-user"></i> golchha</span>
-                                    <span><i class="fas fa-calendar-week"></i> MAY 19, 2021</span>
-                                </div>
-                                <h3 class="box-title mb-3">
-                                    <a href="#">गोल्छा ग्रुपले पाटन अस्पताललाई दियो १ करोड सहयोग</a>
-                                </h3>
-                                <a class="work-readmore" href="#"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-
-
-
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="work-item mb-4">
-
-
-                            <img class="news-img " alt="Vue logo" src="{{asset('frontend/images/news-list-3.jpeg')}}">
-                            <div class="work_box ">
-                                <div class=" d-flex justify-content-between align-items-center mb-3">
-                                    <span><i aria-hidden="true" class="far fa-user"></i> golchha</span>
-                                    <span><i class="fas fa-calendar-week"></i> MAY 19, 2021</span>
-                                </div>
-                                <h3 class="box-title mb-3">
-                                    <a href="#">गोल्छा ग्रुपले पाटन अस्पताललाई दियो १ करोड सहयोग</a>
-                                </h3>
-                                <a class="work-readmore" href="#"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-
-
-
-                        </div>
-                    </div>
-
+                    @endif
+                @endforeach
                 </div>
             </div>
         </div>

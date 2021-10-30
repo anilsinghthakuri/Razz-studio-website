@@ -5,6 +5,7 @@ use App\Http\Controllers\BusinessController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\frontend\FrontBusinessController;
 use App\Http\Controllers\frontend\FrontContactController;
+use App\Http\Controllers\frontend\FrontNewsController;
 use App\Http\Controllers\frontend\FrontTeamController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\TeamController;
@@ -44,13 +45,18 @@ Route::view('/', 'frontend.pages.home.index')->name('frontend.home');
     Route::get('/contact', [FrontContactController::class,'index'])->name('frontend.contact');
     Route::post('/contact', [FrontContactController::class,'store'])->name('frontend.contact_store');
 
+    //for news
+    // Route::view('/newsroom', 'frontend.pages.newsroom.index')->name('frontend.newsroom');
+    Route::get('/newsroom', [FrontNewsController::class,'index'])->name('frontend.newsroom');
+    Route::get('/newsroom{id}', [FrontNewsController::class,'show'])->name('frontend.newsroom_show');
+
+
 
 
 
 
 
 Route::view('/community', 'frontend.pages.community.index')->name('frontend.community');
-Route::view('/newsroom', 'frontend.pages.newsroom.index')->name('frontend.newsroom');
 Route::view('/careers', 'frontend.pages.careers.index')->name('frontend.careers');
 
 
