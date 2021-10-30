@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\frontend\FrontBusinessController;
 use App\Http\Controllers\frontend\FrontContactController;
 use App\Http\Controllers\frontend\FrontTeamController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Route;
 
@@ -61,6 +62,7 @@ Route::prefix('admin')->group(function () {
     Route::resource('/business', BusinessController::class);
     Route::resource('/team', TeamController::class);
     Route::resource('/contact', ContactController::class);
+    Route::resource('/news', NewsController::class);
 
 
 

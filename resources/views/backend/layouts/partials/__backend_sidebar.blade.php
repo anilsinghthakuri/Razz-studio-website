@@ -77,6 +77,7 @@
                         </p>
                     </a>
                 </li>
+
                 <li class="nav-item {{ (request()->is('admin/business*')) ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ (request()->is('admin/business*')) ? 'active' : '' }}">
                         <i class="nav-icon fas fa-circle"></i>
@@ -98,6 +99,34 @@
                         <li class="nav-item">
                             <a href="{{route('business.index')}}"
                                 class="nav-link {{ (request()->is('admin/business')) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item {{ (request()->is('admin/news*')) ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ (request()->is('admin/news*')) ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p>
+                            News
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('news.create')}}"
+                                class="nav-link  {{ (request()->is('admin/news/create')) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Create</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('news.index')}}"
+                                class="nav-link {{ (request()->is('admin/news')) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>View</p>
                             </a>

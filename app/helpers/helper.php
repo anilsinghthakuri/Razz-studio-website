@@ -33,4 +33,14 @@ function fetch_business_data(){
 }
 
 
+function news_group()
+{
+    $news = [
+        'Corporate',
+        'Mentions',
+    ];
+
+    return $news;
+}
+
 ?>
