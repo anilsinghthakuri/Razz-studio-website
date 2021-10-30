@@ -7,7 +7,9 @@ use App\Http\Controllers\frontend\FrontBusinessController;
 use App\Http\Controllers\frontend\FrontContactController;
 use App\Http\Controllers\frontend\FrontNewsController;
 use App\Http\Controllers\frontend\FrontTeamController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\SliderController;
 use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Route;
 
@@ -54,6 +56,10 @@ Route::view('/', 'frontend.pages.home.index')->name('frontend.home');
 
 
 
+    //for login
+    Route::get('/login',[LoginController::class,'index'])->name('login');
+    Route::post('/login',[LoginController::class,'authenticate'])->name('user.login');
+
 
 
 Route::view('/community', 'frontend.pages.community.index')->name('frontend.community');
@@ -62,18 +68,29 @@ Route::view('/careers', 'frontend.pages.careers.index')->name('frontend.careers'
 
 //for backend
 
-Route::prefix('admin')->group(function () {
-
-    Route::view('/dashboard', 'backend.pages.dashboard.index')->name('dashboard');
-    Route::resource('/business', BusinessController::class);
-    Route::resource('/team', TeamController::class);
-    Route::resource('/contact', ContactController::class);
-    Route::resource('/news', NewsController::class);
+Route::middleware(['auth'])->group(function () {
 
 
+    Route::get('/logout',[LoginController::class,'logout'])->name('user.logout');
 
-    //not done
-    Route::resource('/aboutus', AboutusController::class);
-    Route::get('/aboutus/{id}', [AboutusController::class,'aboutus'])->name('about_us');
+    Route::prefix('admin')->group(function () {
+
+
+
+        Route::view('/dashboard', 'backend.pages.dashboard.index')->name('dashboard');
+        Route::resource('/business', BusinessController::class);
+        Route::resource('/team', TeamController::class);
+        Route::resource('/contact', ContactController::class);
+        Route::resource('/news', NewsController::class);
+        Route::resource('/slider', SliderController::class);
+
+
+
+        //not done
+        Route::resource('/aboutus', AboutusController::class);
+        Route::get('/aboutus/{id}', [AboutusController::class,'aboutus'])->name('about_us');
+
+    });
+
 
 });

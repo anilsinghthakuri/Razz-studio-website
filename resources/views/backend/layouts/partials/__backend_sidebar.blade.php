@@ -90,6 +90,34 @@
                     </ul>
                 </li>
 
+                <li class="nav-item {{ (request()->is('admin/slider*')) ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ (request()->is('admin/slider*')) ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-images"></i>
+                        <p>
+                            Slider
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('slider.create')}}"
+                                class="nav-link  {{ (request()->is('admin/slider/create')) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Create</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('slider.index')}}"
+                                class="nav-link {{ (request()->is('admin/slider')) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="nav-item {{ (request()->is('admin/news*')) ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ (request()->is('admin/news*')) ? 'active' : '' }}">
                         <i class="nav-icon fas fa-newspaper"></i>

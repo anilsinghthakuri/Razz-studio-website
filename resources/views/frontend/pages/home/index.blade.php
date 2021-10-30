@@ -7,45 +7,17 @@
     <header class="hero-text">
         <div class="hero" data-arrows="true" data-autoplay="true">
             <!--.hero-slide-->
-            <div class="hero-slide">
-                <img alt="Mars Image" class="img-responsive cover" src="{{asset('frontend/images/03.jpg')}}">
-                <div class="header-content text-white position-absolute slide-content col-lg-4">
-                    <h2 class="mb-4">LunarXP Voted Best Mars Mission</h2>
-                    <p>Magnificence in the realistic interchanges </p>
-                    <a class="btn btn-primary btn-lg w-max mt-2" href="#" tabindex="0">Read More</a>
+            @foreach (fetch_sliderdata() as $item)
+                <div class="hero-slide">
+                    <img alt="Mars Image" class="img-responsive cover" src="{{asset('backend/images/slider/'.$item->image)}}">
+                    <div class="header-content text-white position-absolute slide-content col-lg-4">
+                        <h2 class="mb-4">{{$item->heading}}</h2>
+                        <p>{{$item->desc}} </p>
+                        <a class="btn btn-primary btn-lg w-max mt-2" href="#" tabindex="0">Read More</a>
+                    </div>
                 </div>
-            </div>
-            <div class="hero-slide">
-                <img alt="Mars Image" class="img-responsive cover" src="{{asset('frontend/images/02.jpg')}}">
-                <div class="header-content text-white position-absolute slide-content col-lg-4">
-                    <h2 class="mb-4">Our Customers: The <span class="d-block font-weight-bold">Heroes Of Our
-                            Story</span></h2>
+            @endforeach
 
-                    <p>Magnificence in the realistic interchanges </p>
-                    <a class="btn btn-primary btn-lg w-max mt-2" href="#" tabindex="0">Read More</a>
-                </div>
-            </div>
-
-            <div class="hero-slide">
-                <img alt="Mars Image" class="img-responsive cover" src="{{asset('frontend/images/01.jpg')}}">
-                <div class="header-content text-white position-absolute slide-content col-lg-4">
-                    <h2 class="mb-4">Paving The <span class="d-block font-weight-bold">Future</span></h2>
-                    <p>Magnificence in the realistic interchanges </p>
-                    <a class="btn btn-primary btn-lg w-max mt-2" href="#" tabindex="0">Tour Our Ships</a>
-                </div>
-            </div>
-            <!--.hero-slide-->
-
-            <div class="hero-slide">
-                <img alt="Mars Image" class="img-responsive cover" src="{{asset('frontend/images/02.jpg')}}">
-                <div class="header-content text-white position-absolute slide-content col-lg-4">
-                    <h2 class="mb-4">LunarXP Voted Best Mars Mission</h2>
-                    <p>Magnificence in the realistic interchanges </p>
-                    <a class="btn btn-primary btn-lg w-max mt-2" href="#" tabindex="0"> <i
-                            class="fas fa-arrow-right"></i> Read More</a>
-                </div>
-            </div>
-            <!--.hero-slide-->
 
         </div>
         <!--.hero-->
@@ -98,86 +70,23 @@
                     <h2>Our Portfolio</h2>
                 </div>
                 <div class="row">
+                    @foreach (fetch_business_data_front() as $item)
+
                     <div class="col-md-12 col-lg-4">
                         <div class="work-item mb-4">
 
-                            <img class="work-img " alt="Vue logo" src="{{asset('frontend/images/t1.jpg')}}">
+                            <img class="work-img " alt="Vue logo" src="{{asset('backend/images/business/'.$item->image)}}">
                             <div class="work_box d-flex justify-content-between align-items-center">
                                 <h3 class="box-title">
-                                    <a href="#">Automobiles</a>
+                                    <a href="#">{{$item->title}}</a>
                                 </h3>
-                                <a class="work-readmore" href="#"><i class="fas fa-arrow-right"></i></a>
+                                <a class="work-readmore" href="{{route('frontend.business_show',$item->id)}}"><i class="fas fa-arrow-right"></i></a>
                             </div>
 
                         </div>
                     </div>
-                    <div class="col-md-12 col-lg-4">
-                        <div class="work-item mb-4">
+                    @endforeach
 
-                            <img class="work-img " alt="Vue logo" src="{{asset('frontend/images/t2.jpg')}}">
-                            <div class="work_box d-flex justify-content-between align-items-center">
-                                <h3 class="box-title">
-                                    <a href="#">Electronics</a>
-                                </h3>
-                                <a class="work-readmore" href="#"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-4">
-                        <div class="work-item mb-4">
-
-                            <img class="work-img " alt="Vue logo" src="{{asset('frontend/images/t3.jpg')}}">
-
-                            <div class="work_box d-flex justify-content-between align-items-center">
-                                <h3 class="box-title">
-                                    <a href="#">Finance</a>
-                                </h3>
-                                <a class="work-readmore" href="#"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-4">
-                        <div class="work-item mb-4">
-
-                            <img class="work-img " alt="Vue logo" src="{{asset('frontend/images/t3.jpg')}}">
-                            <div class="work_box d-flex justify-content-between align-items-center">
-                                <h3 class="box-title">
-                                    <a href="#">Insurance</a>
-                                </h3>
-                                <a class="work-readmore" href="#"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-4">
-                        <div class="work-item mb-4">
-
-                            <img class="work-img " alt="Vue logo" src="{{asset('frontend/images/t3.jpg')}}">
-                            <div class="work_box d-flex justify-content-between align-items-center">
-                                <h3 class="box-title">
-                                    <a href="#">Bioscience</a>
-                                </h3>
-                                <a class="work-readmore" href="#"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-4">
-                        <div class="work-item mb-4">
-
-                            <img class="work-img " alt="Vue logo" src="{{asset('frontend/images/t3.jpg')}}">
-
-                            <div class="work_box d-flex justify-content-between align-items-center">
-                                <h3 class="box-title">
-                                    <a href="#">Alternative Energy</a>
-                                </h3>
-                                <a class="work-readmore" href="#"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -191,108 +100,26 @@
                     <h2>Recent News</h2>
                 </div>
                 <div class="row">
-                    <div class="col-md-12 col-lg-4">
-                        <div class="work-item mb-4">
+                    @foreach (fetch_news_data_front() as $item)
+                        <div class="col-md-12 col-lg-4">
+                            <div class="work-item mb-4">
 
-                            <img class="news-img " alt="Vue logo" src="{{asset('frontend/images/news-list-3.jpeg')}}">
-                            <div class="work_box ">
-                                <div class=" d-flex justify-content-between align-items-center mb-3">
-                                    <span><i aria-hidden="true" class="far fa-user"></i> golchha</span>
-                                    <span><i class="fas fa-calendar-week"></i> MAY 19, 2021</span>
+                                <img class="news-img " alt="Vue logo" src="{{asset('backend/images/news/'.$item->image)}}">
+                                <div class="work_box ">
+                                    <div class=" d-flex justify-content-between align-items-center mb-3">
+                                        <span><i aria-hidden="true" class="far fa-user"></i> {{$item->news_type}}</span>
+                                        <span><i class="fas fa-calendar-week"></i> {{$item->created_at}}</span>
+                                    </div>
+                                    <h3 class="box-title mb-3">
+                                        <a href="{{route('frontend.newsroom_show',$item->id)}}">{{$item->title}}</a>
+                                    </h3>
+                                    <a class="work-readmore" href="{{route('frontend.newsroom_show',$item->id)}}"><i class="fas fa-arrow-right"></i></a>
                                 </div>
-                                <h3 class="box-title mb-3">
-                                    <a href="#">गोल्छा ग्रुपले पाटन अस्पताललाई दियो १ करोड सहयोग</a>
-                                </h3>
-                                <a class="work-readmore" href="#"><i class="fas fa-arrow-right"></i></a>
+
                             </div>
-
                         </div>
-                    </div>
-                    <div class="col-md-12 col-lg-4">
-                        <div class="work-item mb-4">
+                    @endforeach
 
-                            <img class="news-img " alt="Vue logo" src="{{asset('frontend/images/news-list-3.jpeg')}}">
-                            <div class="work_box ">
-                                <div class=" d-flex justify-content-between align-items-center mb-3">
-                                    <span><i aria-hidden="true" class="far fa-user"></i> golchha</span>
-                                    <span><i class="fas fa-calendar-week"></i> MAY 19, 2021</span>
-                                </div>
-                                <h3 class="box-title mb-3">
-                                    <a href="#">गोल्छा ग्रुपले पाटन अस्पताललाई दियो १ करोड सहयोग</a>
-                                </h3>
-                                <a class="work-readmore" href="#"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-4">
-                        <div class="work-item mb-4">
-
-                            <img class="news-img " alt="Vue logo" src="{{asset('frontend/images/news-list-3.jpeg')}}">
-                            <div class="work_box ">
-                                <div class=" d-flex justify-content-between align-items-center mb-3">
-                                    <span><i aria-hidden="true" class="far fa-user"></i> golchha</span>
-                                    <span><i class="fas fa-calendar-week"></i> MAY 19, 2021</span>
-                                </div>
-                                <h3 class="box-title mb-3">
-                                    <a href="#">गोल्छा ग्रुपले पाटन अस्पताललाई दियो १ करोड सहयोग</a>
-                                </h3>
-                                <a class="work-readmore" href="#"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-4">
-                        <div class="work-item mb-4">
-
-                            <img class="news-img " alt="Vue logo" src="{{asset('frontend/images/news-list-3.jpeg')}}">
-                            <div class="work_box ">
-                                <div class=" d-flex justify-content-between align-items-center mb-3">
-                                    <span><i aria-hidden="true" class="far fa-user"></i> golchha</span>
-                                    <span><i class="fas fa-calendar-week"></i> MAY 19, 2021</span>
-                                </div>
-                                <h3 class="box-title mb-3">
-                                    <a href="#">गोल्छा ग्रुपले पाटन अस्पताललाई दियो १ करोड सहयोग</a>
-                                </h3>
-                                <a class="work-readmore" href="#"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-4">
-                        <div class="work-item mb-4">
-
-                            <img class="news-img " alt="Vue logo" src="{{asset('frontend/images/news-list-3.jpeg')}}">
-                            <div class="work_box mb-3">
-                                <div class=" d-flex justify-content-between align-items-center mb-3">
-                                    <span><i aria-hidden="true" class="far fa-user"></i> golchha</span>
-                                    <span><i class="fas fa-calendar-week"></i> MAY 19, 2021</span>
-                                </div>
-                                <h3 class="box-title mb-3">
-                                    <a href="#">गोल्छा ग्रुपले पाटन अस्पताललाई दियो १ करोड सहयोग</a>
-                                </h3>
-                                <a class="work-readmore" href="#"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-4">
-                        <div class="work-item mb-4">
-
-                            <img class="news-img " alt="Vue logo" src="{{asset('frontend/images/news-list-3.jpeg')}}">
-                            <div class="work_box ">
-                                <div class=" d-flex justify-content-between align-items-center mb-3">
-                                    <span><i aria-hidden="true" class="far fa-user"></i> golchha</span>
-                                    <span><i class="fas fa-calendar-week"></i> MAY 19, 2021</span>
-                                </div>
-                                <h3 class="box-title mb-3">
-                                    <a href="#">गोल्छा ग्रुपले पाटन अस्पताललाई दियो १ करोड सहयोग</a>
-                                </h3>
-                                <a class="work-readmore" href="#"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-
-                        </div>
-                    </div>
 
                 </div>
             </div>
