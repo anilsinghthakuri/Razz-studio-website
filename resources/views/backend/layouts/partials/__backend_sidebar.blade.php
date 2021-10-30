@@ -34,32 +34,16 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-       with font-awesome or any other icon font library -->
-                {{-- <li class="nav-item menu-open">
-                    <a href="#" class="nav-link active">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                <li class="nav-item">
+                    <a href="{{route('dashboard')}}"
+                        class="nav-link {{ (request()->is('admin/dashboard*')) ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Starter Pages
-                            <i class="right fas fa-angle-left"></i>
+                            Dashboard
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link active">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Active Page</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Inactive Page</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li> --}}
-                <li class="nav-item">
+                </li>
+                {{-- <li class="nav-item">
                     <a href="{{route('about_us',1)}}"
                         class="nav-link {{ (request()->is('admin/aboutus*')) ? 'active' : '' }}">
                         <i class="nav-icon fas fa-th"></i>
@@ -67,11 +51,11 @@
                             About Us
                         </p>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a href="{{route('contact.index')}}"
                         class="nav-link {{ (request()->is('admin/contact*')) ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class=" nav-icon fas fa-address-card"></i>
                         <p>
                             Contact
                         </p>
@@ -80,7 +64,7 @@
 
                 <li class="nav-item {{ (request()->is('admin/business*')) ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ (request()->is('admin/business*')) ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-circle"></i>
+                        <i class="nav-icon fas fa-sitemap"></i>
                         <p>
                             Business
                             <i class="right fas fa-angle-left"></i>
@@ -108,7 +92,7 @@
 
                 <li class="nav-item {{ (request()->is('admin/news*')) ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ (request()->is('admin/news*')) ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-circle"></i>
+                        <i class="nav-icon fas fa-newspaper"></i>
                         <p>
                             News
                             <i class="right fas fa-angle-left"></i>
@@ -136,7 +120,7 @@
 
                 <li class="nav-item {{ (request()->is('admin/team*')) ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ (request()->is('admin/team*')) ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-circle"></i>
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
                             Team
                             <i class="right fas fa-angle-left"></i>
@@ -162,59 +146,6 @@
                     </ul>
                 </li>
 
-                {{-- for sample --}}
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-circle"></i>
-                        <p>
-                            Level 1
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Level 2</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>
-                                    Level 2
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Level 3</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Level 3</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Level 3</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Level 2</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
