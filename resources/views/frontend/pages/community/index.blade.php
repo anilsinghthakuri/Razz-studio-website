@@ -34,12 +34,12 @@
                                         <span><i class="fas fa-calendar-week"></i> {{$item->created_at}}</span>
                                     </div>
                                     <h3 class="box-title box-title__community mb-3">
-                                        <a href="#"> {{Str::limit($item->title,30, '...')}}</a>
+                                        <a href="{{route('frontend.community_show',$item->id)}}"> {{Str::limit($item->title,30, '...')}}</a>
                                     </h3>
                                     <p>
                                         {{Str::limit($item->desc,75, '...')}}
                                     </p>
-                                    <a class="work-readmore" href="#"><i class="fas fa-arrow-right"></i> Read More</a>
+                                    <a class="work-readmore" href="{{route('frontend.community_show',$item->id)}}"><i class="fas fa-arrow-right"></i> Read More</a>
                                 </div>
 
 

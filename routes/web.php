@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Route;
 
 //for frontend
 
-Route::view('/', 'frontend.pages.home.index')->name('frontend.home');
+    Route::view('/', 'frontend.pages.home.index')->name('frontend.home');
 
     //for business page
 
@@ -59,6 +59,8 @@ Route::view('/', 'frontend.pages.home.index')->name('frontend.home');
     //for Community
     // Route::view('/community', 'frontend.pages.community.index')->name('frontend.community');
     Route::get('/community', [FrontCommunityController::class,'index'])->name('frontend.community');
+    Route::get('/community{id}', [FrontCommunityController::class,'show'])->name('frontend.community_show');
+
 
 
     //for login
