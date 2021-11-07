@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutusController;
 use App\Http\Controllers\BusinessController;
+use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\frontend\FrontBusinessController;
 use App\Http\Controllers\frontend\FrontContactController;
@@ -62,8 +63,8 @@ Route::view('/', 'frontend.pages.home.index')->name('frontend.home');
 
 
 
-Route::view('/community', 'frontend.pages.community.index')->name('frontend.community');
-Route::view('/careers', 'frontend.pages.careers.index')->name('frontend.careers');
+    Route::view('/community', 'frontend.pages.community.index')->name('frontend.community');
+    Route::view('/careers', 'frontend.pages.careers.index')->name('frontend.careers');
 
 
 //for backend
@@ -80,6 +81,7 @@ Route::middleware(['auth'])->group(function () {
         Route::view('/dashboard', 'backend.pages.dashboard.index')->name('dashboard');
         Route::resource('/business', BusinessController::class);
         Route::resource('/team', TeamController::class);
+        Route::resource('/community', CommunityController::class);
         Route::resource('/contact', ContactController::class);
         Route::resource('/news', NewsController::class);
         Route::resource('/slider', SliderController::class);
