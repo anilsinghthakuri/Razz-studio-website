@@ -22,79 +22,31 @@
             <div class="container">
 
                 <div class="row mb-5">
-                    <div class="col-md-12">
-                        <div class="work-item d-flex mb-5">
+                    @foreach ($community_data as $item)
+                        <div class="col-md-12">
+                            <div class="work-item d-flex mb-5">
 
 
-                            <img class="community-img " alt="Vue logo" src="{{asset('frontend/images/news-list-3.jpeg')}}">
-                            <div class="work_box ">
-                                <div class=" d-flex justify-content-between align-items-center mb-3">
-                                    <span><i aria-hidden="true" class="far fa-user"></i> golchha</span>
-                                    <span><i class="fas fa-calendar-week"></i> MAY 19, 2021</span>
+                                <img class="community-img " alt="Vue logo" src="{{asset('backend/images/community/'.$item->image)}}">
+                                <div class="work_box ">
+                                    <div class=" d-flex justify-content-between align-items-center mb-3">
+                                        <span><i aria-hidden="true" class="far fa-user"></i> {{$item->community_name}}</span>
+                                        <span><i class="fas fa-calendar-week"></i> {{$item->created_at}}</span>
+                                    </div>
+                                    <h3 class="box-title box-title__community mb-3">
+                                        <a href="#"> {{Str::limit($item->title,30, '...')}}</a>
+                                    </h3>
+                                    <p>
+                                        {{Str::limit($item->desc,75, '...')}}
+                                    </p>
+                                    <a class="work-readmore" href="#"><i class="fas fa-arrow-right"></i> Read More</a>
                                 </div>
-                                <h3 class="box-title box-title__community mb-3">
-                                    <a href="#">Golchha Group donates 30 Samsung microwave ovens to Teaching Hospital;
-                                        continues its support initiative for frontline COVID warriors</a>
-                                </h3>
-                                <p>Golchha Group has contributed 30 Samsung Microwave Ovens to the COVID heroic
-                                    personnel at Teaching Hospital on Sunday. The Director of Golchha Group, Seema...
-                                </p>
-                                <a class="work-readmore" href="#"><i class="fas fa-arrow-right"></i> Read More</a>
+
+
+
                             </div>
-
-
-
                         </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="work-item d-flex mb-5">
-
-
-
-                            <div class="work_box ">
-                                <div class=" d-flex justify-content-between align-items-center mb-3">
-                                    <span><i aria-hidden="true" class="far fa-user"></i> golchha</span>
-                                    <span><i class="fas fa-calendar-week"></i> MAY 19, 2021</span>
-                                </div>
-                                <h3 class="box-title box-title__community mb-3">
-                                    <a href="#">Golchha Group donates 30 Samsung microwave ovens to Teaching Hospital;
-                                        continues its support initiative for frontline COVID warriors</a>
-                                </h3>
-                                <p>Golchha Group has contributed 30 Samsung Microwave Ovens to the COVID heroic
-                                    personnel at Teaching Hospital on Sunday. The Director of Golchha Group, Seema...
-                                </p>
-                                <a class="work-readmore" href="#"><i class="fas fa-arrow-right"></i> Read More</a>
-                            </div>
-                            <img class="community-img " alt="Vue logo" src="{{asset('frontend/images/news-list-3.jpeg')}}">
-
-
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="work-item d-flex mb-5">
-
-
-
-                            <div class="work_box ">
-                                <div class=" d-flex justify-content-between align-items-center mb-3">
-                                    <span><i aria-hidden="true" class="far fa-user"></i> golchha</span>
-                                    <span><i class="fas fa-calendar-week"></i> MAY 19, 2021</span>
-                                </div>
-                                <h3 class="box-title box-title__community mb-3">
-                                    <a href="#">Golchha Group donates 30 Samsung microwave ovens to Teaching Hospital;
-                                        continues its support initiative for frontline COVID warriors</a>
-                                </h3>
-                                <p>Golchha Group has contributed 30 Samsung Microwave Ovens to the COVID heroic
-                                    personnel at Teaching Hospital on Sunday. The Director of Golchha Group, Seema...
-                                </p>
-                                <a class="work-readmore" href="#"><i class="fas fa-arrow-right"></i> Read More</a>
-                            </div>
-                            <img class="community-img " alt="Vue logo" src="{{asset('frontend/images/news-list-3.jpeg')}}">
-
-
-                        </div>
-                    </div>
-
+                    @endforeach
                 </div>
 
             </div>

@@ -5,6 +5,7 @@ use App\Http\Controllers\BusinessController;
 use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\frontend\FrontBusinessController;
+use App\Http\Controllers\frontend\FrontCommunityController;
 use App\Http\Controllers\frontend\FrontContactController;
 use App\Http\Controllers\frontend\FrontNewsController;
 use App\Http\Controllers\frontend\FrontTeamController;
@@ -55,6 +56,9 @@ Route::view('/', 'frontend.pages.home.index')->name('frontend.home');
 
 
 
+    //for Community
+    // Route::view('/community', 'frontend.pages.community.index')->name('frontend.community');
+    Route::get('/community', [FrontCommunityController::class,'index'])->name('frontend.community');
 
 
     //for login
@@ -63,7 +67,6 @@ Route::view('/', 'frontend.pages.home.index')->name('frontend.home');
 
 
 
-    Route::view('/community', 'frontend.pages.community.index')->name('frontend.community');
     Route::view('/careers', 'frontend.pages.careers.index')->name('frontend.careers');
 
 
