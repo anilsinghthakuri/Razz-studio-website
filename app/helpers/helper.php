@@ -66,4 +66,6 @@ function fetch_news_data_front()
     return $news_data;
 }
 
+
+
 ?>

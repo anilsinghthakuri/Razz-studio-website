@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutusController;
 use App\Http\Controllers\BusinessController;
+use App\Http\Controllers\CareerController;
 use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\frontend\FrontBusinessController;
@@ -62,6 +63,10 @@ use Illuminate\Support\Facades\Route;
     Route::get('/community{id}', [FrontCommunityController::class,'show'])->name('frontend.community_show');
 
 
+    //for careers
+    Route::view('/careers', 'frontend.pages.careers.index')->name('frontend.careers');
+    Route::post('/careers', [CareerController::class,'career_form'])->name('frontend.career_form');
+
 
     //for login
     Route::get('/login',[LoginController::class,'index'])->name('login');
@@ -69,7 +74,6 @@ use Illuminate\Support\Facades\Route;
 
 
 
-    Route::view('/careers', 'frontend.pages.careers.index')->name('frontend.careers');
 
 
 //for backend
@@ -90,6 +94,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('/contact', ContactController::class);
         Route::resource('/news', NewsController::class);
         Route::resource('/slider', SliderController::class);
+        Route::resource('/career', CareerController::class);
 
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Career;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CareerController extends Controller
 {
@@ -14,7 +15,11 @@ class CareerController extends Controller
      */
     public function index()
     {
-        //
+        $career_data = $this->fetch_career_data();
+        // dd($career_data);
+        return view('backend.pages.career.index',[
+            'career_data'=>$career_data,
+        ]);
     }
 
     /**
@@ -81,5 +86,22 @@ class CareerController extends Controller
     public function destroy(Career $career)
     {
         //
+    }
+
+    public function career_form(Request $request)
+    {
+        // DB::table('careers')->insert([
+        //     'email'=>$request->email,
+        // ]);
+
+        Career::create($request->except('_token'));
+
+        return redirect()->back()->with('message','Thankyou For Subscribe');
+    }
+
+    private function fetch_career_data()
+    {
+        $career_data = Career::all();
+        return $career_data;
     }
 }
