@@ -6,17 +6,22 @@
 
     <header class="hero-text">
         <div class="hero" data-arrows="true" data-autoplay="true">
-            <!--.hero-slide-->
-            @foreach (fetch_sliderdata() as $item)
-                <div class="hero-slide">
-                    <img alt="Mars Image" class="img-responsive cover" src="{{asset('backend/images/slider/'.$item->image)}}">
-                    <div class="header-content text-white position-absolute slide-content col-lg-4">
-                        <h2 class="mb-4">{{$item->heading}}</h2>
-                        <p>{{$item->desc}} </p>
-                        <a class="btn btn-primary btn-lg w-max mt-2" href="#" tabindex="0">Read More</a>
+
+            @if (fetch_sliderdata() == null)
+
+            @else
+                <!--.hero-slide-->
+                @foreach (fetch_sliderdata() as $item)
+                    <div class="hero-slide">
+                        <img alt="Mars Image" class="img-responsive cover" src="{{asset('backend/images/slider/'.$item->image)}}">
+                        <div class="header-content text-white position-absolute slide-content col-lg-4">
+                            <h2 class="mb-4">{{$item->heading}}</h2>
+                            <p>{{$item->desc}} </p>
+                            <a class="btn btn-primary btn-lg w-max mt-2" href="#" tabindex="0">Read More</a>
+                        </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            @endif
 
 
         </div>
