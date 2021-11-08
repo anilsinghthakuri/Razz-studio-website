@@ -23,15 +23,15 @@ class DatabaseSeeder extends Seeder
             'password'=>Hash::make('1234'),
         ]);
 
-        DB::table('aboutuses')->insert([
-            'image'=>'tl.jpg',
-            'desc'=>'Libero aliquam eiget rhoncus elit quis mattis tos neque ullco qua praesent interdum orc torristique aenean at dictumst velit fames molestie tristique magna sociosqu ine rhoncuis in cubilia magno senectus sociis tortor enim.
 
-            Libero aliquam eiget rhoncus elit quis mattis tos neque ullco qua praesent interdum orc torristique aenean at dictumst velit
+        DB::table('abouts')->insert([
+            'image'=>'t1.jpg',
+            'desc'=>'Libero aliquam eiget rhoncus elit quis mattis tos neque ullco qua praesent interdum orc torristique aenean at dictumst velit fames molestie tristique magna sociosqu ine rhoncuis in cubilia magno senectus sociis tortor enim',
+        ]);
 
-            Libero aliquam eiget rhoncus elit quis mattis tos neque ullco qua praesent interdum orc torristique aenean at dictumst velit
-
-            Libero aliquam eiget rhoncus elit quis mattis tos neque ullco qua praesent interdum orc torristique aenean at dictumst velit fames molestie tristique magna sociosqu ine rhoncuis in cubilia magno senectus sociis tortor enim.',
+        DB::table('missions')->insert([
+            'image'=>'t2.jpg',
+            'desc'=>'Libero aliquam eiget rhoncus elit quis mattis tos neque ullco qua praesent interdum orc torristique aenean at dictumst velit fames molestie tristique magna sociosqu ine rhoncuis in cubilia magno senectus sociis tortor enim',
         ]);
     }
 }

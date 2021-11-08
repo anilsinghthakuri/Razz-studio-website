@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AboutusController;
 use App\Http\Controllers\BusinessController;
 use App\Http\Controllers\CareerController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\frontend\FrontContactController;
 use App\Http\Controllers\frontend\FrontNewsController;
 use App\Http\Controllers\frontend\FrontTeamController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MissionController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\TeamController;
@@ -95,6 +97,8 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('/news', NewsController::class);
         Route::resource('/slider', SliderController::class);
         Route::resource('/career', CareerController::class);
+        Route::resource('/about', AboutController::class);
+        Route::resource('/mission', MissionController::class);
 
 
 

@@ -1,6 +1,6 @@
 @extends('backend.layouts.backend_master')
 
-@section('title','About ')
+@section('title','Mission')
 
 
 @section('contents')
@@ -16,10 +16,10 @@
                     </div>
                     <div class="card-body">
 
-                        <form action="{{route('aboutus.update',$aboutus)}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('mission.update',1)}}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
-                            <img src="{{asset('backend/images/business/t2.jpg')}}" id="profile-img-tag" width="200px" />
+                            <img src="{{asset('backend/images/mission/'.$mission_data->image)}}" id="profile-img-tag" width="200px" />
                             <div class="form-group">
                                 <label for="image">Image</label>
                                 <input type="file" class="form-control-file" name="images" id="profile-img"
@@ -27,7 +27,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="desc">Description</label>
-                                <textarea class="form-control" name="desc" id="desc" rows="8" required>{{$about_us->desc}}</textarea>
+                                <textarea class="form-control" name="desc" id="desc" rows="8" required>{{$mission_data->desc}}</textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Update</button>
                         </form>
