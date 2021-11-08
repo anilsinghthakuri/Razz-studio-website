@@ -67,5 +67,15 @@ function fetch_news_data_front()
 }
 
 
+function fetch_about_data(){
+    $about = DB::table('abouts')->where('id',1)->get();
+    return $about;
+}
+
+function fetch_mission_data(){
+    $mission = DB::table('missions')->where('id',1)->get();
+    return $mission;
+}
+
 
 ?>

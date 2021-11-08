@@ -26,64 +26,35 @@
                                 <h2>A Global Enterprise</h2>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="about-contain p-3">
 
-
-                                <div class="section__title ">
-
-                                    <h3>About Us</h3>
+                        @foreach (fetch_about_data() as $item)
+                            <div class="col-md-6">
+                                <div class="about-contain p-3">
+                                    <div class="section__title ">
+                                        <h3>About Us</h3>
+                                    </div>
+                                    <p class="content-desc">{{$item->desc}}</p>
                                 </div>
-                                <p class="content-desc">Libero aliquam eiget rhoncus elit quis mattis tos neque ullco
-                                    qua
-                                    praesent interdum orc torristique aenean at dictumst velit fames molestie tristique
-                                    magna sociosqu ine rhoncuis in cubilia magno senectus sociis tortor enim.</p>
-                                <p class="content-desc">Libero aliquam eiget rhoncus elit quis mattis tos neque ullco
-                                    qua
-                                    praesent interdum orc torristique aenean at dictumst velit</p>
-                                <p class="content-desc">Libero aliquam eiget rhoncus elit quis mattis tos neque ullco
-                                    qua
-                                    praesent interdum orc torristique aenean at dictumst velit</p>
-                                <p class="content-desc">Libero aliquam eiget rhoncus elit quis mattis tos neque ullco
-                                    qua
-                                    praesent interdum orc torristique aenean at dictumst velit fames molestie tristique
-                                    magna sociosqu ine rhoncuis in cubilia magno senectus sociis tortor enim.</p>
-
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <img class="about-img " alt="Vue logo" src="{{asset('frontend/images/t2.jpg')}}">
-                        </div>
+                            <div class="col-md-6">
+                                <img class="about-img " alt="Vue logo" src="{{asset('backend/images/about/'.$item->image)}}">
+                            </div>
+                        @endforeach
 
-                        <div class="col-md-6">
-                            <div class="about-contain p-3">
-
-
-                                <div class="section__title ">
-                                    <h4 class="mb-3">about us</h4>
-                                    <h2>Our Mission and Vission</h2>
+                        @foreach (fetch_mission_data() as $item)
+                            <div class="col-md-6">
+                                <div class="about-contain p-3">
+                                    <div class="section__title ">
+                                        <h4 class="mb-3">about us</h4>
+                                        <h2>Our Mission and Vission</h2>
+                                    </div>
+                                    <p class="content-desc">{{$item->desc}}</p>
                                 </div>
-                                <p class="content-desc">Libero aliquam eiget rhoncus elit quis mattis tos neque ullco
-                                    qua
-                                    praesent interdum orc torristique aenean at dictumst velit fames molestie tristique
-                                    magna sociosqu ine rhoncuis in cubilia magno senectus sociis tortor enim.</p>
-                                <p class="content-desc">Libero aliquam eiget rhoncus elit quis mattis tos neque ullco
-                                    qua
-                                    praesent interdum orc torristique aenean at dictumst velit</p>
-                                <p class="content-desc">Libero aliquam eiget rhoncus elit quis mattis tos neque ullco
-                                    qua
-                                    praesent interdum orc torristique aenean at dictumst velit</p>
-                                <p class="content-desc">Libero aliquam eiget rhoncus elit quis mattis tos neque ullco
-                                    qua
-                                    praesent interdum orc torristique aenean at dictumst velit fames molestie tristique
-                                    magna sociosqu ine rhoncuis in cubilia magno senectus sociis tortor enim.</p>
-
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <img class="about-img " alt="Vue logo" src="{{asset('frontend/images/t2.jpg')}}">
-                        </div>
-
+                            <div class="col-md-6">
+                                <img class="about-img " alt="Vue logo" src="{{asset('backend/images/mission/'.$item->image)}}">
+                            </div>
+                        @endforeach
 
                     </div>
                 </div>
